@@ -35,7 +35,7 @@ var app = {
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
         // do your thing!
-        app.downloadFile();
+        //app.downloadFile();
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
