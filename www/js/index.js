@@ -35,7 +35,7 @@ var app = {
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
         // do your thing!
-        //app.downloadFile();
+        app.downloadFile();
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
@@ -47,10 +47,11 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
-    }
+    },
     
     /////
         downloadFile: function(){
+            alert('download it!');
             window.requestFileSystem(
                          LocalFileSystem.PERSISTENT, 0, 
                          function onFileSystemSuccess(fileSystem) {
@@ -60,18 +61,17 @@ var app = {
                                      var sPath = fileEntry.fullPath.replace("dummy.html","");
                                      var fileTransfer = new FileTransfer();
                                      fileEntry.remove();
-        
                                      fileTransfer.download(
                                                "http://www.w3.org/2011/web-apps-ws/papers/Nitobi.pdf",
                                                sPath + "theFile.pdf",
                                                function(theFile) {
-                                               console.log("download complete: " + theFile.toURI());
-                                               showLink(theFile.toURI());
+                                                   console.log("download complete: " + theFile.toURI());
+                                                   app.showLink(theFile.toURI());
                                                },
                                                function(error) {
-                                               console.log("download error source " + error.source);
-                                               console.log("download error target " + error.target);
-                                               console.log("upload error code: " + error.code);
+                                                   console.log("download error source " + error.source);
+                                                   console.log("download error target " + error.target);
+                                                   console.log("upload error code: " + error.code);
                                                }
                                                );
                                      }, 
