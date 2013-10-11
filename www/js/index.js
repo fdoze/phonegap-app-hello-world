@@ -35,7 +35,7 @@ var app = {
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
         // do your thing!
-        app.downloadFile();
+        app.f12();
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
@@ -48,8 +48,10 @@ var app = {
 
         console.log('Received Event: ' + id);
     },
-    
     /////
+      f12: function(){  
+        alert(fileSystem.root);
+    },
         downloadFile: function(){
             alert('download it!');
             window.requestFileSystem(
