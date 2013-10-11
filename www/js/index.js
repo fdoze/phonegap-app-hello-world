@@ -35,7 +35,9 @@ var app = {
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
         // do your thing!
-        app.f12();
+        // request the persistent file system
+        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, app.f12, onError);
+
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
