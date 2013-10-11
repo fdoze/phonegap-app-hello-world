@@ -81,8 +81,7 @@ var app = {
                          }, 
                          fail);
         
-        }
-        
+        },
         showLink: function(url){
             alert(url);
             var divEl = document.getElementById("fMsg");
@@ -93,8 +92,7 @@ var app = {
             divEl.appendChild(aElem);
         
         }
-        
-        
+        ,
         fail: function(evt) {
             console.log(evt.target.error.code);
         }
