@@ -51,8 +51,10 @@ var app = {
         console.log('Received Event: ' + id);
     },
     /////
-      f12: function(){  
+      f12: function(){ 
+        alert('a'); 
         alert(fileSystem.root);
+        alert('b');
     },
         downloadFile: function(){
             alert('download it!');
