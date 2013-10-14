@@ -68,7 +68,7 @@ var app = {
                                      var fileTransfer = new FileTransfer();
                                      fileEntry.remove();
                                      fileTransfer.download(
-                                               "http://www.w3.org/2011/web-apps-ws/papers/Nitobi.pdf",
+                                               "http://www.hitl.washington.edu/people/le101/fun/mov/jackal.mov",
                                                sPath + "theFile.pdf",
                                                function(theFile) {
                                                    console.log("download complete: " + theFile.toURI());
