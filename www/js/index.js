@@ -64,7 +64,7 @@ var app = {
                          fileSystem.root.getFile(
                                      "dummy.html", {create: true, exclusive: false}, 
                                      function gotFileEntry(fileEntry){
-                                     var sPath = fileEntry.fullPath.replace("dummy.html","");
+                                     var sPath = fileEntry.fullPath.replace("dummy.mov","");
                                      var fileTransfer = new FileTransfer();
                                      fileEntry.remove();
                                      fileTransfer.download(
@@ -80,19 +80,23 @@ var app = {
                                                    console.log("upload error code: " + error.code);
                                                }
                                                );
+                                    fileTransfer.onprogress = function(progressEvent) {
+                                    perc = Math.floor((progressEvent.loaded / progressEvent.total) * 100);
+                                        app.showLink(theFile.toURI(), perc);
+                                    }
                                      }, 
                                      fail);
                          }, 
                          fail);
         
         },
-        showLink: function(url){
+        showLink: function(url, msg){
             alert(url);
             var divEl = document.getElementById("fMsg");
             var aElem = document.createElement("a");
             aElem.setAttribute("target", "_blank");
             aElem.setAttribute("href", url);
-            aElem.appendChild(document.createTextNode("Ready! Click To Open."))
+            aElem.appendChild(document.createTextNode(msg))
             divEl.appendChild(aElem);
         
         }
