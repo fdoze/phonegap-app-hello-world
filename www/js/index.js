@@ -69,7 +69,7 @@ var app = {
                                      fileEntry.remove();
                                      fileTransfer.download(
                                                "http://www.hitl.washington.edu/people/le101/fun/mov/jackal.mov",
-                                               sPath + "theFile.pdf",
+                                               sPath + "theFile.mov",
                                                function(theFile) {
                                                    console.log("download complete: " + theFile.toURI());
                                                    app.showLink(theFile.toURI());
