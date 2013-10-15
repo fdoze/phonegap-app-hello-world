@@ -56,6 +56,7 @@
     -->
     <gap:plugin name="org.apache.cordova.core.file" />
     <gap:plugin name="org.apache.cordova.core.file-transfer" />
+    <gap:plugin name="com.simplec.plugins.powermanagement" />
     
     <!-- Define app icon for each platform. -->
     <icon src="icon.png" />
