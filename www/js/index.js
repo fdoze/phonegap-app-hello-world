@@ -104,6 +104,15 @@ var app = {
             if (progressEvent.lengthComputable) {
                 var perc = Math.floor(progressEvent.loaded / progressEvent.total * 100);
                 statusDom.innerHTML = perc + "% loaded...";
+                    
+                    if(perc >= 100){
+                        var aElem = document.createElement("a");
+                        aElem.setAttribute("target", "_blank");
+                         aElem.setAttribute("href", url);
+                        aElem.appendChild(document.createTextNode(msg))
+                        statusDom.appendChild(aElem);
+                    }
+
                 } else {
                 if(statusDom.innerHTML == "") {
                 statusDom.innerHTML = "Loading";
