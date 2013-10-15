@@ -94,7 +94,7 @@ var app = {
             var aElem = document.createElement("a");
             aElem.setAttribute("target", "_blank");
             aElem.setAttribute("href", url);
-            aElem.appendChild(document.createTextNode(msg))
+            aElem.appendChild(document.createTextNode('PLAY ME'))
             divEl.appendChild(aElem);
         
         },
@@ -109,7 +109,7 @@ var app = {
                         var aElem = document.createElement("a");
                         aElem.setAttribute("target", "_blank");
                          aElem.setAttribute("href", url);
-                        aElem.appendChild(document.createTextNode(msg))
+                        aElem.appendChild(document.createTextNode('----Done----'))
                         statusDom.appendChild(aElem);
                     }
 
