@@ -51,22 +51,33 @@ var app = {
         console.log('Received Event: ' + id);
     },
     /////
-      f12: function(){ 
-        alert('a'); 
-        alert(fileSystem.root);
-        alert('b');
-    },
         downloadFile: function(){
             alert('download it!');
             window.requestFileSystem(
                          LocalFileSystem.PERSISTENT, 0, 
                          function onFileSystemSuccess(fileSystem) {
                          fileSystem.root.getFile(
-                                     "dummy.html", {create: true, exclusive: false}, 
+                                     "dummy.mov", {create: true, exclusive: false}, 
                                      function gotFileEntry(fileEntry){
                                      var sPath = fileEntry.fullPath.replace("dummy.mov","");
                                      var fileTransfer = new FileTransfer();
                                      fileEntry.remove();
+                                     fileTransfer.onprogress = function(progressEvent) {
+                                        var perc = Math.floor((progressEvent.loaded / progressEvent.total) * 100);
+                                        app.showMsg(perc);
+                                        /*
+                                        if (progressEvent.lengthComputable) {
+                                            var perc = Math.floor(progressEvent.loaded / progressEvent.total * 100);
+                                            statusDom.innerHTML = perc + "% loaded...";
+                                            } else {
+                                            if(statusDom.innerHTML == "") {
+                                            statusDom.innerHTML = "Loading";
+                                         } else {
+                                            statusDom.innerHTML += ".";
+                                            }
+                                        }
+                                        */
+                                    };
                                      fileTransfer.download(
                                                "http://www.hitl.washington.edu/people/le101/fun/mov/jackal.mov",
                                                sPath + "theFile.mov",
@@ -80,22 +91,28 @@ var app = {
                                                    console.log("upload error code: " + error.code);
                                                }
                                                );
-                                    fileTransfer.onprogress = function(progressEvent) {
-                                    perc = Math.floor((progressEvent.loaded / progressEvent.total) * 100);
-                                        app.showLink(theFile.toURI(), perc);
-                                    }
+                                    
                                      }, 
                                      fail);
                          }, 
                          fail);
         
         },
-        showLink: function(url, msg){
+        showLink: function(url){
             alert(url);
             var divEl = document.getElementById("fMsg");
             var aElem = document.createElement("a");
             aElem.setAttribute("target", "_blank");
             aElem.setAttribute("href", url);
+            aElem.appendChild(document.createTextNode(msg))
+            divEl.appendChild(aElem);
+        
+        },
+        showMsg: function(msg){
+            var divEl = document.getElementById("fMsg");
+            var aElem = document.createElement("a");
+            aElem.setAttribute("target", "_blank");
+            aElem.setAttribute("href", '#');
             aElem.appendChild(document.createTextNode(msg))
             divEl.appendChild(aElem);
         
