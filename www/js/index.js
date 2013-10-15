@@ -68,8 +68,8 @@ var app = {
                                         
                                     };
                                      fileTransfer.download(
-                                              // "http://www.hitl.washington.edu/people/le101/fun/mov/jackal.mov",
-                                               "http://www.hitl.washington.edu/people/le101/fun/mov/travis_02.MOV",
+                                               "http://www.hitl.washington.edu/people/le101/fun/mov/jackal.mov",
+                                              // "http://www.hitl.washington.edu/people/le101/fun/mov/travis_02.MOV",
                                                sPath + "theFile.mov",
                                                function(theFile) {
                                                    console.log("download complete: " + theFile.toURI());
