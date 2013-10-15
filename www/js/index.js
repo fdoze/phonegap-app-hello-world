@@ -63,20 +63,9 @@ var app = {
                                      var fileTransfer = new FileTransfer();
                                      fileEntry.remove();
                                      fileTransfer.onprogress = function(progressEvent) {
-                                        var perc = Math.floor((progressEvent.loaded / progressEvent.total) * 100);
-                                        app.showMsg(perc);
-                                        /*
-                                        if (progressEvent.lengthComputable) {
-                                            var perc = Math.floor(progressEvent.loaded / progressEvent.total * 100);
-                                            statusDom.innerHTML = perc + "% loaded...";
-                                            } else {
-                                            if(statusDom.innerHTML == "") {
-                                            statusDom.innerHTML = "Loading";
-                                         } else {
-                                            statusDom.innerHTML += ".";
-                                            }
-                                        }
-                                        */
+                                       // var perc = Math.floor((progressEvent.loaded / progressEvent.total) * 100);
+                                        app.showMsg(progressEvent);
+                                        
                                     };
                                      fileTransfer.download(
                                                "http://www.hitl.washington.edu/people/le101/fun/mov/jackal.mov",
@@ -108,13 +97,20 @@ var app = {
             divEl.appendChild(aElem);
         
         },
-        showMsg: function(msg){
-            var divEl = document.getElementById("fMsg");
-            var aElem = document.createElement("a");
-            aElem.setAttribute("target", "_blank");
-            aElem.setAttribute("href", '#');
-            aElem.appendChild(document.createTextNode(msg))
-            divEl.appendChild(aElem);
+        showMsg: function(progressEvent){
+            var statusDom = document.getElementById("fMsg");
+         
+            if (progressEvent.lengthComputable) {
+                var perc = Math.floor(progressEvent.loaded / progressEvent.total * 100);
+                statusDom.innerHTML = perc + "% loaded...";
+                } else {
+                if(statusDom.innerHTML == "") {
+                statusDom.innerHTML = "Loading";
+             } else {
+                statusDom.innerHTML += ".";
+                }
+            }
+            
         
         }
         ,
