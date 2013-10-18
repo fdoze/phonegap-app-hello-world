@@ -3,8 +3,8 @@
 <!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id        = "com.grdd.helloworld"
-        version   = "1.0.0">
+        id        = "com.grdd.tests"
+        version   = "1.1.0">
 
     <name>0 GR/DD Tests</name>
 
@@ -12,7 +12,7 @@
         Hello World sample application that responds to the deviceready event.
     </description>
 
-    <author href="http://phonegap.com" email="support@phonegap.com">
+    <author href="http://www.grdd.co.uk" email="fjordaot@grdd.co.uk">
         PhoneGap Team
     </author>
 
@@ -32,7 +32,7 @@
 
     <!-- Customize your app and platform with the preference element. -->
     <!-- <preference name="phonegap-version"      value="3.1.0" /> -->      <!-- all: current version of PhoneGap -->
-    <preference name="phonegap-version" value="3.1.0" />
+    <preference name="phonegap-version" value="3.0.0" />
     <preference name="orientation"                value="default" />        <!-- all: default means both landscape and portrait are enabled -->
     <preference name="target-device"              value="universal" />      <!-- all: possible values handset, tablet, or universal -->
     <preference name="fullscreen"                 value="true" />           <!-- all: hides the status bar at the top of the screen -->
