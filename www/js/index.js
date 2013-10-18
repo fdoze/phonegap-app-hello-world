@@ -36,7 +36,7 @@ var app = {
         app.receivedEvent('deviceready');
         // do your thing!
         // request the persistent file system
-        app.downloadFile();
+        //app.downloadFile();
 
     },
     // Update DOM on a Received Event
